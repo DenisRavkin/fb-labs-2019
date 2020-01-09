@@ -164,7 +164,7 @@ int main()
 		while ((simplicity_test(n1,4)) == 0)
 		{	//while(n1<c_256)
 			//n1 = RandomBnd(c_260);
-			n1 = random(c_260, c_256);
+			n1 = random(c_256, c_260);
 		}
 		std::cout << "n1\n";
 		//ZZ n2;
@@ -172,7 +172,7 @@ int main()
 		while ((simplicity_test(n2, 4)) == 0)
 		{
 			//while (n2 < c_256)
-			n2 = random(c_260, c_256);
+			n2 = random(c_256, c_260);
 		}
 		std::cout << "n2\n";
 		//ZZ n3;
@@ -180,7 +180,7 @@ int main()
 		while ((simplicity_test(n3, 4)) == 0)
 		{	
 			//while (n3 < c_256)
-			n3 =  random(c_260, c_256);
+			n3 = random(c_256, c_260);
 		}
 		std::cout << "n3\n";
 		//ZZ n4;
@@ -188,7 +188,7 @@ int main()
 		while ((simplicity_test(n4, 4)) == 0)
 		{
 			//while (n4 < c_256)
-			n4 =  random(c_260, c_256);
+			n4 = random(c_256, c_260);
 		}
 		std::cout << "n4\n";
 
