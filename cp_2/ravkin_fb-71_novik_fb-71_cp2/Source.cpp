@@ -230,7 +230,7 @@ int main()
 		
 				for (auto& item : index_sovpadeniy4)
 				{
-					cout << item.first << " : " <<(double) item.second/kk*100 <<" "; //Вывод ключей и значений
+					cout << item.first << " : " <<setprecision(2)<<(double) item.second/kk*100 <<" "; //Вывод ключей и значений
 				}
 				cout << endl;
 		}
@@ -290,10 +290,13 @@ int main()
 	int q = 0;
 	int i = 0;
 	cout << "Расшифрованный текст:" << endl;
+	map <char, float> index_sovpadeniy5{ {'а',0},{'б',0},{'в',0},{'г',0},{'д',0},{'е',0},{'ж',0},{'з',0},{'и',0},{'й',0},{'к',0},{'л',0},{'м',0},{'н',0},{'о',0},{'п',0},{'р',0},{'с',0},{'т',0},{'у',0},{'ф',0},{'х',0},{'ц',0},{'ч',0},{'ш',0},{'щ',0},{'ъ', 0} ,{'ы',0},{'ь',0},{'э',0},{'ю',0},{'я',0} };
+	
+
+	vector <string> blocks2{ "","","" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"","","" };
+	r = 0;
 	while (shttt.get(ch))
 	{
-		
-		//q=key[i];
 		auto iterator_ch = alf3.find(ch);
 		//auto iterator_key = alf3.find(q);
 			
@@ -304,8 +307,71 @@ int main()
 		
 
 		auto iterator_bukvi = alf4.find(chislo_bukvi);
+
+		/*
+		auto iter_index_sovp = alf4.find(chislo_bukvi);
+		if (iter_index_sovp != index_sovpadeniy2.end())
+		{	
+			if(iter_index_sovp->second==0)
+			{
+				iter_index_sovp.push
+			}
+			iterator_text->second++;
+
+		}
+		*/
 		cout << iterator_bukvi->second;
+		blocks2[r].push_back(iterator_bukvi->second);
+		r++;
+		if (r == 28)
+		{
+			r = 0;
+		}
+		
 	}
+	int k_vo_bukv = 0;
+	cout << endl;
+	for (int r = 0; r < 28; r++)
+	{
+
+
+		for (auto ch : blocks2[r])
+		{
+
+			auto iterator = index_sovpadeniy5.find(ch);
+			if (iterator != index_sovpadeniy5.end())
+			{
+				iterator->second++;
+				k_vo_bukv++;
+			}
+
+		}
+		cout << r+1 << ":" << endl;
+		for (auto& item : index_sovpadeniy5)
+		{
+			cout << item.first << " : " << setprecision(2) << (double)item.second / k_vo_bukv * 100 <<endl; //Вывод ключей и значений
+		}
+		cout << endl;
+
+		for (auto& item : index_sovpadeniy5)
+		{
+			item.second = 0;
+		}
+		k_vo_bukv = 0;
+	}
+	/*
+	ifstream vt2("D:\\VISUAL STUDIO 4\\Project4\\ШТ.txt");
+	int r = 0;
+	while (sht2.get(ch))
+	{
+		blocks[r].push_back(ch);
+		r++;
+		if (r == 28)
+		{
+			r = 0;
+		}
+	}
+	*/
 
 }
 
